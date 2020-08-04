@@ -1,0 +1,15 @@
+.mat-card{
+    color:white;
+    background-color: #303F9F;
+    border-radius: 0px;
+    text-align:center;
+    font-size: 20px;
+    position: fixed;
+    width: 100%;
+    
+        grid-row-start: 2;
+        grid-row-end: 3;
+left:0;
+bottom:0;
+right:0;
+}

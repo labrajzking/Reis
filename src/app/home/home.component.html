@@ -1,0 +1,8 @@
+<button mat-flat-button color="accent" (click)="GetResults()">GetResults</button>
+<button mat-flat-button color="accent" (click)="StartBalayages()">StartBalayages</button>
+<button mat-flat-button color="accent" (click)="GetFinalResults()">GetFinalReuslts</button>
+<mat-list>
+    <mat-list-item *ngFor="let result of ResultsList">
+        {{result}}
+    </mat-list-item>
+</mat-list>

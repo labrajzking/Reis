@@ -1,0 +1,26 @@
+<div fxLayoutAlign.gt-md="space-around center">
+  <h2>SignupForm</h2>
+  <form noValidate [formGroup]="SignupForm" (ngSubmit)="onSubmit()">
+    <p>
+      <mat-form-field class="half-width">
+        <input matInput type="text" formControlName="username" placeholder="UserName" required>
+        <mat-error *ngIf="formErrors.username">
+          {{formErrors.username}}
+        </mat-error>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="half-width">
+        <input matInput type="password" formControlName="password" placeholder="Password" required>
+        <mat-error *ngIf="formErrors.password">
+          {{formErrors.password}}
+        </mat-error>
+      </mat-form-field>
+      <br>
+    </p>
+    <button type="submit" mat-button class="background-primary text-floral-white"
+      [disabled]='SignupForm.invalid'>Submit</button>
+  </form>
+  <div *ngIf="errMess">
+{{errMess}}
+  </div>
+</div>
