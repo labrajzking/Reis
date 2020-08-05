@@ -1,8 +1,16 @@
-<button mat-flat-button color="accent" (click)="GetResults()">GetResults</button>
-<button mat-flat-button color="accent" (click)="StartBalayages()">StartBalayages</button>
-<button mat-flat-button color="accent" (click)="GetFinalResults()">GetFinalReuslts</button>
-<mat-list>
-    <mat-list-item *ngFor="let result of ResultsList">
-        {{result}}
-    </mat-list-item>
-</mat-list>
+<button mat-flat-button color="accent" (click)="GetResults()" routerLink="/displayresults">GetResults</button>
+<button mat-flat-button color="accent" (click)="StartBalayages();GetBalayagesProgression()"
+    routerLink="/startbalayages">StartBalayages</button>
+<button mat-flat-button color="accent" routerLink="/finalresults">GetFinalReuslts</button>
+<div [hidden]="completed">
+    <div *ngIf="BalayagesStarted">
+        <h2>Balayages Is Loading</h2>
+        <mat-progress-bar value="{{BalayagesProgression}}">
+        </mat-progress-bar>
+    </div>
+</div>
+<div [hidden]="resultscompleted">
+    <mat-spinner *ngIf="completed">
+        Saving Results In DataBase
+    </mat-spinner>
+</div>

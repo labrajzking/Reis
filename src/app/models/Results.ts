@@ -1,4 +1,4 @@
 export class Results {
 client_code: String;
-person_id:String;
+person_id:Number;
 }

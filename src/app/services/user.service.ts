@@ -62,16 +62,35 @@ export class UserService {
           return this.http.get(BaseUrl+'StartBalayages',httpOptions)
           .pipe(catchError(this.processHTTPMsgService.HandelError));
         }
-        GetFinalResults ():Observable<String[]>
+        GetFinalResults ():Observable<Results[]>
         {
           const httpOptions = {
             headers: new HttpHeaders({
               'Authorization' : this.Token
             })
           };
-
-          return this.http.get<String[]>(BaseUrl+'GetFinalResults',httpOptions)
+          return this.http.get<Results[]>(BaseUrl+'GetFinalResults',httpOptions)
           .pipe(catchError(this.processHTTPMsgService.HandelError)); 
+        }
+        GetBalayagesProgress ():Observable<Number>
+        {
+          const httpOptions = {
+            headers: new HttpHeaders({
+              'Authorization' : this.Token
+            })
+          };
+          return this.http.get<Number>(BaseUrl+'Balayagesprogression',httpOptions) 
+          .pipe(catchError(this.processHTTPMsgService.HandelError));
+        }
+        GetResultsSavingProgress():Observable<Boolean>
+        {
+          const httpOptions = {
+            headers: new HttpHeaders({
+              'Authorization' : this.Token
+            })
+          };
+          return this.http.get<Boolean>(BaseUrl+'ResultsSavingProgression',httpOptions) 
+          .pipe(catchError(this.processHTTPMsgService.HandelError));
         }
     }
 
