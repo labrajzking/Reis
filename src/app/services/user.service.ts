@@ -8,6 +8,7 @@ import { Http } from '@angular/http';
 import {User} from '../models/User';
 import { Token } from '@angular/compiler';
 import { Results } from '../models/Results';
+import { Outcome } from '../models/Outcome';
 @Injectable({
   providedIn: 'root'
 })
@@ -62,14 +63,14 @@ export class UserService {
           return this.http.get(BaseUrl+'StartBalayages',httpOptions)
           .pipe(catchError(this.processHTTPMsgService.HandelError));
         }
-        GetFinalResults ():Observable<Results[]>
+        GetFinalResults ():Observable<Outcome>
         {
           const httpOptions = {
             headers: new HttpHeaders({
               'Authorization' : this.Token
             })
           };
-          return this.http.get<Results[]>(BaseUrl+'GetFinalResults',httpOptions)
+          return this.http.get<Outcome>(BaseUrl+'GetFinalResults',httpOptions)
           .pipe(catchError(this.processHTTPMsgService.HandelError)); 
         }
         GetBalayagesProgress ():Observable<Number>

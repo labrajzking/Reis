@@ -1,6 +1,5 @@
-<button mat-flat-button color="accent" (click)="GetResults()" routerLink="/displayresults">GetResults</button>
-<button mat-flat-button color="accent" (click)="StartBalayages();GetBalayagesProgression()"
-    routerLink="/startbalayages">StartBalayages</button>
+<button mat-flat-button color="accent" routerLink="/displayresults">GetResults</button>
+<button mat-flat-button color="accent" (click)="StartBalayages();GetBalayagesProgression()">StartBalayages</button>
 <button mat-flat-button color="accent" routerLink="/finalresults">GetFinalReuslts</button>
 <div [hidden]="completed">
     <div *ngIf="BalayagesStarted">

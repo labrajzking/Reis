@@ -25,11 +25,13 @@ import {ProcessHttpmsgService} from './services/process-httpmsg.service';
 import { AppRoutingModule} from './app-routing/app-routing.module';
 import {MatButtonModule} from '@angular/material/button';
 import { AuthService } from './auth/auth.service';
+import {MatTableModule} from '@angular/material/table';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import { DisplayresultsComponent } from './displayresults/displayresults.component';
+import { DisplayresultsComponent } from './savingresults/displayresults.component';
 import { FinalresultsComponent } from './finalresults/finalresults.component';
 import { StartbalayagesComponent } from './startbalayages/startbalayages.component';
+import { MatPaginatorModule } from '@angular/material';
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,7 +61,9 @@ import { StartbalayagesComponent } from './startbalayages/startbalayages.compone
     MatButtonModule,
     MatCardModule,
     MatProgressBarModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatTableModule,
+    MatPaginatorModule
   ],
   providers: [UserService,
     ProcessHttpmsgService,

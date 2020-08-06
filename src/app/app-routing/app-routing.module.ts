@@ -4,7 +4,7 @@ import {Routes,RouterModule, Router} from '@angular/router';
 import {LoginComponent} from '../login/login.component';
 import {SignupComponent} from '../signup/signup.component';
 import {HomeComponent} from '../home/home.component';
-import {DisplayresultsComponent} from '../displayresults/displayresults.component';
+import {DisplayresultsComponent} from '../savingresults/displayresults.component';
 import {FinalresultsComponent} from '../finalresults/finalresults.component';
 import {StartbalayagesComponent} from '../startbalayages/startbalayages.component';
 const routes : Routes = [
