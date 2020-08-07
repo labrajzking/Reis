@@ -9,6 +9,7 @@ import {User} from '../models/User';
 import { Token } from '@angular/compiler';
 import { Results } from '../models/Results';
 import { Outcome } from '../models/Outcome';
+import { BalayagesProgression } from '../models/BalayagesProgression';
 @Injectable({
   providedIn: 'root'
 })
@@ -73,14 +74,14 @@ export class UserService {
           return this.http.get<Outcome>(BaseUrl+'GetFinalResults',httpOptions)
           .pipe(catchError(this.processHTTPMsgService.HandelError)); 
         }
-        GetBalayagesProgress ():Observable<Number>
+        GetBalayagesProgress ():Observable<BalayagesProgression>
         {
           const httpOptions = {
             headers: new HttpHeaders({
               'Authorization' : this.Token
             })
           };
-          return this.http.get<Number>(BaseUrl+'Balayagesprogression',httpOptions) 
+          return this.http.get<BalayagesProgression>(BaseUrl+'Balayagesprogression',httpOptions) 
           .pipe(catchError(this.processHTTPMsgService.HandelError));
         }
         GetResultsSavingProgress():Observable<Boolean>
