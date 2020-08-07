@@ -12,6 +12,7 @@ import {Outcome} from '../models/Outcome';
 })
 export class FinalresultsComponent implements OnInit {
   Outcome : Outcome;
+  errMess : String;
   displayedColumns: string[] = ['client_code','person_id'];
   ResultsList : Results[];
   constructor(private userService:UserService,
@@ -22,7 +23,8 @@ export class FinalresultsComponent implements OnInit {
     .subscribe(Outcome=>{this.Outcome=Outcome
       this.ResultsList=this.Outcome.resultsList;
       console.log(this.Outcome);
-    })
+    },errmess=>{this.errMess=<any>errmess;
+    console.log(this.errMess);})
   }
   @ViewChild(MatPaginator) paginator: MatPaginator;
   ngOnInit() {

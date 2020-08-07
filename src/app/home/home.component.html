@@ -1,6 +1,7 @@
 <button mat-flat-button color="accent" routerLink="/displayresults">GetResults</button>
 <button mat-flat-button color="accent" (click)="StartBalayages();GetBalayagesProgression()">StartBalayages</button>
 <button mat-flat-button color="accent" routerLink="/finalresults">GetFinalReuslts</button>
+<div [hidden]="errMess">
 <div [hidden]="completed">
     <div *ngIf="BalayagesStarted">
         <h2>Balayages Is Loading</h2>
@@ -12,4 +13,9 @@
     <mat-spinner *ngIf="completed">
         Saving Results In DataBase
     </mat-spinner>
+</div>
+</div>
+<div *ngIf="errMess">
+    <h2>Error</h2>
+    <h4>{{errMess}}</h4>
 </div>

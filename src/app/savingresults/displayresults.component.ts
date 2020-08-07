@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from '../services/user.service';
+import {Location} from '@angular/common';
 @Component({
   selector: 'app-displayresults',
   templateUrl: './displayresults.component.html',
@@ -7,11 +8,14 @@ import {UserService} from '../services/user.service';
 })
 export class DisplayresultsComponent implements OnInit {
 resultscompleted : Boolean;
-  constructor(private userService:UserService) { }
+errMess : String;
+  constructor(private userService:UserService,
+    private location : Location) { }
   GetResults()
   {
     this.userService.GetResults()
-    .subscribe();
+    .subscribe(errmess=>{this.errMess=<any>errmess;
+    console.log(this.errMess)});
   }
   GetProgression()
   {
@@ -19,7 +23,7 @@ resultscompleted : Boolean;
       this.userService.GetResultsSavingProgress()
       .subscribe(resultsprogression=>{
         this.resultscompleted=resultsprogression;
-      })
+      },errmess=>this.errMess=<any>errmess)
       if (this.resultscompleted==true)
       {
         clearInterval(code);
@@ -30,5 +34,8 @@ resultscompleted : Boolean;
     this.GetResults();
     this.GetProgression();
   }
-
+GetBack()
+{
+  this.location.back();
+}
 }

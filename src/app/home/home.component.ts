@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
   subscription: Subscription;
   completed : Boolean=false;
   resultscompleted : Boolean=false;
+  errMess : String ;
   constructor(private userService : UserService) { }
   
   StartBalayages()
@@ -35,7 +36,7 @@ export class HomeComponent implements OnInit {
       console.log(this.completed);
       clearInterval(code);
     }
-  }); 
+  },errmess=>this.errMess=<any>errmess); 
     },1000*20)
     setTimeout(() => {
   if (this.completed==true)
@@ -43,8 +44,8 @@ export class HomeComponent implements OnInit {
 let code=setInterval(()=>{
   this.userService.GetResultsSavingProgress()
   .subscribe(resultsprogression=>{
-    this.resultscompleted=resultsprogression;
-  })
+    this.resultscompleted=resultsprogression;},
+    errmess=>this.errMess=<any>errmess)
   if (this.resultscompleted==true)
   {
     clearInterval(code);

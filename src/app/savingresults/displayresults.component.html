@@ -1,5 +1,11 @@
-<div [hidden]="resultscompleted">
+<button mat-flat-button color="primary" (click)="GetBack()">GoBack</button>
+<div [hidden]="resultscompleted || errMess">
   <h3>Results Are Being Saved In The DataBase</h3>
   <mat-spinner>
   </mat-spinner>
+</div>
+<h2 *ngIf="resultscompleted">The Results Are Saved In The Database</h2>
+<div *ngIf="errMess">
+  <h2>Error</h2>
+  <h4>{{errMess}}</h4>
 </div>
