@@ -1,12 +1,16 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, OnDestroy} from '@angular/core';
 import {UserService} from '../services/user.service';
 import {BalayagesProgression} from '../models/BalayagesProgression';
+import { Subscription} from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit,OnDestroy {
+  /*subscription1: Subscription=new Subscription;
+  subscription2: Subscription=new Subscription;*/
   BalayagesStarted : Boolean;
   BalayagesProgression : BalayagesProgression;
   progression : Number;
@@ -19,7 +23,7 @@ export class HomeComponent implements OnInit {
   StartBalayages()
   {
     this.BalayagesStarted=true;
-    this.userService.StartBalayages()
+   /* this.subscription1= */this.userService.StartBalayages()
     .subscribe();
   }
   GetBalayagesProgression ()
@@ -27,7 +31,7 @@ export class HomeComponent implements OnInit {
     if (this.BalayagesStarted )
     { 
    let code=setInterval(()=>{
-       this.userService.GetBalayagesProgress()
+   /* this.subscription2=*/ this.userService.GetBalayagesProgress()
       .subscribe(balayagesprogression=>{
         this.BalayagesProgression=balayagesprogression;
         this.progression=this.BalayagesProgression.progression;
@@ -61,5 +65,10 @@ let code=setInterval(()=>{
   
   ngOnInit() {
   }
-
+ngOnDestroy()
+{
+  console.log("DESTROYING");
+/*this.subscription1.unsubscribe();
+this.subscription2.unsubscribe();*/
+}
 }

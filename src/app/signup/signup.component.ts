@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {User} from '../models/User';
 import {UserService} from '../services/user.service';
+import {Router} from '@angular/router';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -29,7 +30,8 @@ validationMessages = {
  
 };
 constructor(private fb: FormBuilder,
-  private UserService: UserService) {
+  private UserService: UserService
+  ,private router:Router) {
   this.createForm();
 }
 
@@ -70,6 +72,7 @@ onSubmit() {
   this.UserService.submitSignup(this.user)
     .subscribe(user => {
       this.user = user;
+      this.router.navigate(['login']);
     }, errmess => { this.user = null; this.errMess = <any>errmess });
   this.SignupForm.reset({
     username: '',

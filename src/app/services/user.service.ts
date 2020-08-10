@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { of, Observable } from 'rxjs';
+import { of, Observable, Subscription } from 'rxjs';
 import { delay, catchError } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BaseUrl } from '../models/BaseUrl';
