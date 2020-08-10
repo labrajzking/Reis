@@ -1,6 +1,6 @@
-<button mat-flat-button color="accent" routerLink="/displayresults">GetResults</button>
+<button mat-flat-button color="accent" routerLink="/displayresults">SaveReferenceResults</button>
 <button mat-flat-button color="accent" (click)="StartBalayages();GetBalayagesProgression()">StartBalayages</button>
-<button mat-flat-button color="accent" routerLink="/finalresults">GetFinalReuslts</button>
+<button mat-flat-button color="accent" routerLink="/finalresults">GetFinalResults</button>
 <div [hidden]="errMess || forcedone">
 <div [hidden]="completed">
     <div *ngIf="BalayagesStarted">
@@ -9,12 +9,15 @@
         </mat-progress-bar>
     </div>
 </div>
-<div [hidden]="resultscompleted">
-    <mat-spinner *ngIf="completed">
-        Saving Results In DataBase
+</div>
+<div [hidden]="resultscompleted || errMess">
+    <div *ngIf="completed">
+    <h3>Saving The Results In The DataBase</h3>
+    <mat-spinner>
     </mat-spinner>
 </div>
 </div>
+<h2 *ngIf="resultscompleted">Operation Compeleted</h2>
 <div *ngIf="errMess">
     <h2>Error</h2>
     <h4>{{errMess}}</h4>

@@ -39,10 +39,11 @@ export class HomeComponent implements OnInit {
       clearInterval(code);
     }
   },errmess=>this.errMess=<any>errmess); 
-    },1000*60)
+    },1000*65)
     setTimeout(() => {
   if (this.completed==true)
   {
+    this.BalayagesStarted=false;
 let code=setInterval(()=>{
   this.userService.GetResultsSavingProgress()
   .subscribe(resultsprogression=>{
