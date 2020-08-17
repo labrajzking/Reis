@@ -13,16 +13,18 @@ import {Outcome} from '../models/Outcome';
 export class FinalresultsComponent implements OnInit {
   Outcome : Outcome;
   errMess : String;
-  displayedColumns: string[] = ['client_code','person_id'];
-  ResultsList : Results[];
+  displayedColumns: string[] = ['client_code','whole_name','person_id','score'];
+  ResultsList1 : Results[];
+  ResultsList2 : Results[];
   constructor(private userService:UserService,
     private location:Location) { }
   GetFinalResults ()
   {
     this.userService.GetFinalResults()
     .subscribe(Outcome=>{this.Outcome=Outcome
-      this.ResultsList=this.Outcome.resultsList;
-      console.log(this.Outcome);
+      this.ResultsList1=this.Outcome.resultsList1;
+      this.ResultsList2=this.Outcome.resultsList2;
+      console.log(this.ResultsList2);
     },errmess=>{this.errMess=<any>errmess;
     console.log(this.errMess);})
   }

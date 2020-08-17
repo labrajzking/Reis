@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit,OnDestroy {
         this.progression=this.BalayagesProgression.progression;
         this.forcedone=this.BalayagesProgression.forcedone;
       console.log(this.BalayagesProgression)
-      if (this.BalayagesProgression.progression==100.0)
+      if (this.BalayagesProgression.forcedone==true)
     {
       this.completed=true;
       clearInterval(code);
@@ -47,6 +47,7 @@ export class HomeComponent implements OnInit,OnDestroy {
     setTimeout(() => {
   if (this.completed==true)
   {
+    console.log(this.completed);
     this.BalayagesStarted=false;
 let code=setInterval(()=>{
   this.userService.GetResultsSavingProgress()

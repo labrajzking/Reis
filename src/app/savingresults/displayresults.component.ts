@@ -7,7 +7,7 @@ import {Location} from '@angular/common';
   styleUrls: ['./displayresults.component.css']
 })
 export class DisplayresultsComponent implements OnInit {
-resultscompleted : Boolean;
+resultscompleted : Boolean=false;
 errMess : String;
   constructor(private userService:UserService,
     private location : Location) { }
@@ -17,7 +17,7 @@ errMess : String;
     .subscribe(errmess=>{this.errMess=<any>errmess;
     console.log(this.errMess)});
   }
-  GetProgression()
+  /*GetProgression()
   {
     let code=setInterval(()=>{
       this.userService.GetResultsSavingProgress()
@@ -29,10 +29,10 @@ errMess : String;
         clearInterval(code);
       }
     },1000*180)
-  }
+  }*/
   ngOnInit() {
     this.GetResults();
-    this.GetProgression();
+    //this.GetProgression();
   }
 GetBack()
 {

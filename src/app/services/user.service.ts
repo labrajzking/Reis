@@ -41,7 +41,6 @@ export class UserService {
           };
           return this.http.post<User>(BaseUrl + 'signup', user, httpOptions)
             .pipe(catchError(this.processHTTPMsgService.HandelError));
-      
         }
         GetResults () 
         {
