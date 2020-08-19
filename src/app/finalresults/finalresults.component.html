@@ -11,6 +11,10 @@
         <th mat-header-cell *matHeaderCellDef>Whole_Name</th>
         <td mat-cell *matCellDef="let element"> {{element.whole_name}} </td>
       </ng-container>
+      <ng-container matColumnDef="person_whole_name">
+        <th mat-header-cell *matHeaderCellDef>Person_Whole_Name</th>
+        <td mat-cell *matCellDef="let element"> {{element.person_whole_name}} </td>
+      </ng-container>
       <ng-container matColumnDef="score">
         <th mat-header-cell *matHeaderCellDef>score</th>
         <td mat-cell *matCellDef="let element"> {{element.score}} </td>
@@ -37,6 +41,10 @@
       <ng-container matColumnDef="score">
         <th mat-header-cell *matHeaderCellDef>score</th>
         <td mat-cell *matCellDef="let element"> {{element.score}} </td>
+      </ng-container>
+      <ng-container matColumnDef="person_whole_name">
+        <th mat-header-cell *matHeaderCellDef>Person_Whole_Name</th>
+        <td mat-cell *matCellDef="let element"> {{element.person_whole_name}} </td>
       </ng-container>
       <ng-container matColumnDef="person_id">
         <th mat-header-cell *matHeaderCellDef>Person_Id </th>

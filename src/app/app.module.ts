@@ -15,8 +15,6 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 import 'hammerjs';
-import { SignupComponent } from './signup/signup.component';
-import { LoginComponent } from './login/login.component';
 import {UserService} from './services/user.service';
 import {BaseUrl} from './models/BaseUrl';
 import {HttpModule} from '@angular/http';
@@ -38,8 +36,6 @@ import { MatPaginatorModule } from '@angular/material';
     HomeComponent,
     HeaderComponent,
     FooterComponent,
-    SignupComponent,
-    LoginComponent,
     DisplayresultsComponent,
     FinalresultsComponent,
     StartbalayagesComponent

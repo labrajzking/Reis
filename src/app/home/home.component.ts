@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit,OnDestroy {
         this.BalayagesProgression=balayagesprogression;
         this.progression=this.BalayagesProgression.progression;
         this.forcedone=this.BalayagesProgression.forcedone;
-      console.log(this.BalayagesProgression)
+      console.log(this.BalayagesProgression);
       if (this.BalayagesProgression.forcedone==true)
     {
       this.completed=true;

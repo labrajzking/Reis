@@ -13,7 +13,7 @@ import {Outcome} from '../models/Outcome';
 export class FinalresultsComponent implements OnInit {
   Outcome : Outcome;
   errMess : String;
-  displayedColumns: string[] = ['client_code','whole_name','person_id','score'];
+  displayedColumns: string[] = ['client_code','whole_name','person_id','person_whole_name','score'];
   ResultsList1 : Results[];
   ResultsList2 : Results[];
   constructor(private userService:UserService,
