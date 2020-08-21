@@ -1,5 +1,6 @@
 <button mat-flat-button color="primary" (click)="GetBack()">GoBack</button>
-<div [hidden]="errMess" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap.xs="0" fxLayoutGap="32px">
+
+<div [hidden]="errMess" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap.xs="0" fxLayoutGap="32px" [@expand] [@visibility]="shown">
   <div *ngIf="ResultsList2">
     <h2 class="headers">Records Found In The Reference Results But Not In FinalList</h2>
     <table mat-table [dataSource]="ResultsList2" class="mat-elevation-z8">

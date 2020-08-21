@@ -1,10 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from '../services/user.service';
 import {Location} from '@angular/common';
+import {visibility,flyInOut,expand} from '../animations/animations';
 @Component({
   selector: 'app-displayresults',
   templateUrl: './displayresults.component.html',
-  styleUrls: ['./displayresults.component.css']
+  styleUrls: ['./displayresults.component.css'],
+  host : {
+    '[@flyInOut]' :'true',
+    'style' : 'display:block;'
+      },
+      animations : [
+        flyInOut(),
+        visibility(),
+        expand()
+      ]
 })
 export class DisplayresultsComponent implements OnInit {
 resultscompleted : Boolean=false;

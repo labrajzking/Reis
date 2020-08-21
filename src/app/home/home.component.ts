@@ -3,10 +3,20 @@ import {UserService} from '../services/user.service';
 import {BalayagesProgression} from '../models/BalayagesProgression';
 import { Subscription} from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import {visibility,flyInOut,expand} from '../animations/animations';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
+  host : {
+    '[@flyInOut]' :'true',
+    'style' : 'display:block;'
+      },
+      animations : [
+        flyInOut(),
+        visibility(),
+        expand()
+      ]
 })
 export class HomeComponent implements OnInit,OnDestroy {
   /*subscription1: Subscription=new Subscription;

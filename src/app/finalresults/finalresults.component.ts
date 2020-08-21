@@ -5,10 +5,20 @@ import {Location} from '@angular/common';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
 import {Outcome} from '../models/Outcome';
+import {visibility,flyInOut,expand} from '../animations/animations';
 @Component({
   selector: 'app-finalresults',
   templateUrl: './finalresults.component.html',
-  styleUrls: ['./finalresults.component.css']
+  styleUrls: ['./finalresults.component.css'],
+  host : {
+    '[@flyInOut]' :'true',
+    'style' : 'display:block;'
+      },
+      animations : [
+        flyInOut(),
+        visibility(),
+        expand()
+      ]
 })
 export class FinalresultsComponent implements OnInit {
   Outcome : Outcome;
